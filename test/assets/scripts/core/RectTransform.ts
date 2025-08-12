@@ -15,11 +15,11 @@ export class RectTransformConfig {
 @menu('Transform/RectTransform')
 export default class RectTransform extends Component {
     @property({
-        displayName: 'Landscape',
+        group: 'Landscape',
         type: RectTransformConfig
     }) private landscape: RectTransformConfig = new RectTransformConfig();
     @property({
-        displayName: 'Portrait',
+        group: 'Portrait',
         type: RectTransformConfig
     }) private portrait: RectTransformConfig = new RectTransformConfig();
 
