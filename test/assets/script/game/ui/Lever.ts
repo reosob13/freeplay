@@ -1,6 +1,6 @@
 import {_decorator, Component, Sprite, Node, Vec3, Vec2} from 'cc';
-import InputSystem from '../../core/Input/InputSystem';
 import InputType from '../../core/Input/InputType';
+import InputSystem from '../../core/Input/InputSystem';
 import InputEventData from '../../core/Input/InputEventData';
 import InputSource from '../../core/Input/InputSource';
 

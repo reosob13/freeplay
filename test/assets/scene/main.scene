@@ -18,7 +18,7 @@
         "__id__": 2
       },
       {
-        "__id__": 43
+        "__id__": 46
       },
       {
         "__id__": 7
@@ -26,7 +26,9 @@
     ],
     "_active": true,
     "_components": [],
-    "_prefab": null,
+    "_prefab": {
+      "__id__": 70
+    },
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -56,7 +58,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 64
+      "__id__": 71
     },
     "_id": "9196b1ce-34bd-4eac-9692-41cb2ef46744"
   },
@@ -76,6 +78,9 @@
       },
       {
         "__id__": 41
+      },
+      {
+        "__id__": 43
       }
     ],
     "_active": true,
@@ -1307,6 +1312,75 @@
   },
   {
     "__type__": "cc.Node",
+    "_name": "PoolManager",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 44
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "32HCd/5T1ObouEtmxoFRc/"
+  },
+  {
+    "__type__": "a5593zv4HxBb43Fa3Flo/d2",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 43
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "poolConfigs": [
+      {
+        "__id__": 45
+      }
+    ],
+    "_id": "dbR7/Sl/ZK0oti2ZGwfUFa"
+  },
+  {
+    "__type__": "PoolConfig",
+    "pooledType": 1,
+    "pooledObject": {
+      "__uuid__": "d2a4fa84-1a7f-4d36-b037-0e373adfa6ca",
+      "__expectedType__": "cc.Prefab"
+    },
+    "count": 40
+  },
+  {
+    "__type__": "cc.Node",
     "_name": "[World]",
     "_objFlags": 0,
     "_parent": {
@@ -1314,13 +1388,13 @@
     },
     "_children": [
       {
-        "__id__": 44
+        "__id__": 47
       },
       {
-        "__id__": 56
+        "__id__": 59
       },
       {
-        "__id__": 63
+        "__id__": 66
       }
     ],
     "_active": true,
@@ -1360,17 +1434,17 @@
     "_name": "[StaticEnv]",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 46
     },
     "_children": [
-      {
-        "__id__": 45
-      },
       {
         "__id__": 48
       },
       {
-        "__id__": 52
+        "__id__": 51
+      },
+      {
+        "__id__": 55
       }
     ],
     "_active": true,
@@ -1410,13 +1484,13 @@
     "_name": "Main Light",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 44
+      "__id__": 47
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 46
+        "__id__": 49
       }
     ],
     "_prefab": null,
@@ -1454,7 +1528,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 45
+      "__id__": 48
     },
     "_enabled": true,
     "__prefab": null,
@@ -1468,7 +1542,7 @@
     "_useColorTemperature": false,
     "_colorTemperature": 6550,
     "_staticSettings": {
-      "__id__": 47
+      "__id__": 50
     },
     "_visibility": -325058561,
     "_illuminanceHDR": 65000,
@@ -1504,16 +1578,16 @@
     "_name": "StartPlane",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 44
+      "__id__": 47
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 49
+        "__id__": 52
       },
       {
-        "__id__": 51
+        "__id__": 54
       }
     ],
     "_prefab": null,
@@ -1551,7 +1625,7 @@
     "_name": "Cube<ModelComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 51
     },
     "_enabled": true,
     "__prefab": null,
@@ -1563,7 +1637,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 50
+      "__id__": 53
     },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
@@ -1603,7 +1677,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 51
     },
     "_enabled": true,
     "__prefab": null,
@@ -1633,22 +1707,22 @@
     "_name": "EndPlane",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 44
+      "__id__": 47
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 53
+        "__id__": 56
       },
       {
-        "__id__": 55
+        "__id__": 58
       }
     ],
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 33.698,
+      "x": 33.85,
       "y": 4.349,
       "z": 0
     },
@@ -1680,7 +1754,7 @@
     "_name": "Cube<ModelComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 52
+      "__id__": 55
     },
     "_enabled": true,
     "__prefab": null,
@@ -1692,7 +1766,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 54
+      "__id__": 57
     },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
@@ -1732,7 +1806,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 52
+      "__id__": 55
     },
     "_enabled": true,
     "__prefab": null,
@@ -1762,11 +1836,11 @@
     "_name": "[DynamicEnv]",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 46
     },
     "_children": [
       {
-        "__id__": 57
+        "__id__": 60
       }
     ],
     "_active": true,
@@ -1806,24 +1880,24 @@
     "_name": "Main Camera",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 56
+      "__id__": 59
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 58
+        "__id__": 61
       },
       {
-        "__id__": 59
+        "__id__": 62
       }
     ],
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -6.549,
-      "y": 14.29,
-      "z": 16.127
+      "x": 31.987,
+      "y": 6.066,
+      "z": 4.381
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1853,7 +1927,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 57
+      "__id__": 60
     },
     "_enabled": true,
     "__prefab": null,
@@ -1896,18 +1970,18 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 57
+      "__id__": 60
     },
     "_enabled": true,
     "__prefab": null,
     "cameraPos": {
-      "__id__": 60
+      "__id__": 63
     },
     "cameraAngle": {
-      "__id__": 61
+      "__id__": 64
     },
     "cameraFov": {
-      "__id__": 62
+      "__id__": 65
     },
     "_id": "6aGQPXRJJKP5eYKFcABCN/"
   },
@@ -1951,9 +2025,13 @@
     "_name": "[SystemEnv]",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 46
     },
-    "_children": [],
+    "_children": [
+      {
+        "__id__": 67
+      }
+    ],
     "_active": true,
     "_components": [],
     "_prefab": null,
@@ -1987,24 +2065,136 @@
     "_id": "4fykEmQqFN27onPZkSD3PG"
   },
   {
-    "__type__": "cc.SceneGlobals",
-    "ambient": {
-      "__id__": 65
-    },
-    "shadows": {
+    "__type__": "cc.Node",
+    "_name": "LogSpawner",
+    "_objFlags": 0,
+    "_parent": {
       "__id__": 66
     },
-    "_skybox": {
+    "_children": [
+      {
+        "__id__": 68
+      }
+    ],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 69
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "a59bedOhRJB4ud2q0cFTeT"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "SpawnPoint",
+    "_objFlags": 0,
+    "_parent": {
       "__id__": 67
     },
-    "fog": {
+    "_children": [],
+    "_active": true,
+    "_components": [],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": -10,
+      "y": 5,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "ceVhY8Ti1P04dO3LyTsBpu"
+  },
+  {
+    "__type__": "40000KKzYJLjLrXzWdgcld1",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 67
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "count": 72,
+    "offset": 0.55,
+    "spawnPoint": {
       "__id__": 68
     },
+    "_id": "5525bA2JRIio4DfqwnAgEx"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": null,
+    "asset": null,
+    "fileId": "9196b1ce-34bd-4eac-9692-41cb2ef46744",
+    "instance": null,
+    "targetOverrides": null
+  },
+  {
+    "__type__": "cc.SceneGlobals",
+    "ambient": {
+      "__id__": 72
+    },
+    "shadows": {
+      "__id__": 73
+    },
+    "_skybox": {
+      "__id__": 74
+    },
+    "fog": {
+      "__id__": 75
+    },
     "octree": {
-      "__id__": 69
+      "__id__": 76
     },
     "lightProbeInfo": {
-      "__id__": 70
+      "__id__": 77
     },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false
