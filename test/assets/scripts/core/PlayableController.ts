@@ -55,7 +55,7 @@ export default class PlayableController extends Component {
             this.windowResized();
         });
 
-        this.inputSystem?.on(InputType.Down.toString(), this.onDown, this);
+        this.inputSystem?.on(InputType[InputType.Down], this.onDown, this);
         GlobalEventTarget.on(PlayableEvent[PlayableEvent.REDIRECT], this.onRedirect, this);
         GlobalEventTarget.on(PlayableEvent[PlayableEvent.RESULT], this.onResult, this);
     }

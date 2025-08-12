@@ -29,6 +29,7 @@ export default class InputComponent extends Component {
         this.node[op](Node.EventType.TOUCH_START, this.onDown, this);
         this.node[op](Node.EventType.TOUCH_END, this.onUp, this);
         this.node[op](Node.EventType.TOUCH_CANCEL, this.onUp, this);
+        this.node[op](Node.EventType.TOUCH_MOVE, this.onMove, this);
     }
 
     private onDown(eventTouch: EventTouch): void {
@@ -37,5 +38,9 @@ export default class InputComponent extends Component {
 
     private onUp(eventTouch: EventTouch): void {
         GlobalEventTarget.emit(PlayableEvent[PlayableEvent.INPUT], InputType.Up, eventTouch, this.inputSource);
+    }
+
+    private onMove(eventTouch: EventTouch): void {
+        GlobalEventTarget.emit(PlayableEvent[PlayableEvent.INPUT], InputType.Drag, eventTouch, this.inputSource);
     }
 }
