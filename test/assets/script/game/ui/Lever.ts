@@ -3,6 +3,8 @@ import InputType from '../../core/Input/InputType';
 import InputSystem from '../../core/Input/InputSystem';
 import InputEventData from '../../core/Input/InputEventData';
 import InputSource from '../../core/Input/InputSource';
+import GlobalEventTarget from '../../core/GlobalEventTarget';
+import GameEvent from '../../enum/GameEvent';
 
 const {ccclass, property} = _decorator;
 
@@ -20,6 +22,7 @@ export default class Lever extends Component {
 
     protected onLoad(): void {
         this.inputSystem = InputSystem.getInstance<InputSystem>();
+
         this.cacheBounds();
     }
 
@@ -29,6 +32,10 @@ export default class Lever extends Component {
 
     protected onDisable(): void {
         this.inputSystem.off(InputType[InputType.None], this.onInput, this);
+    }
+
+    protected start(): void {
+        this.setLowPosition();
     }
 
     private cacheBounds(): void {
@@ -70,8 +77,13 @@ export default class Lever extends Component {
         const newPosY = Math.min(Math.max(localTouch.y, this.minY), this.maxY);
         this.render.node.setPosition(new Vec3(this.render.node.position.x, newPosY));
 
-        const normalized = (newPosY - this.minY) / (this.maxY - this.minY);
-        console.log('Lever value:', normalized);
+        const leverValue = (newPosY - this.minY) / (this.maxY - this.minY);
+
+        GlobalEventTarget.emit(GameEvent[GameEvent.LEVER_CHANGED], leverValue);
+    }
+
+    private setLowPosition(): void {
+        this.moveToTouch(new Vec2(this.node.position.x, this.minY));
     }
 
     private onInput(data: InputEventData): void {

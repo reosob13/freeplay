@@ -37,7 +37,7 @@
       },
       "physics": {
         "_value": true,
-        "_option": "physics-builtin"
+        "_option": "physics-ammo"
       },
       "physics-ammo": {
         "_value": false
@@ -132,7 +132,7 @@
       "gfx-webgl",
       "gfx-webgl2",
       "light-probe",
-      "physics-builtin",
+      "physics-ammo",
       "primitive",
       "tween",
       "ui"

@@ -28,7 +28,6 @@ export default class PlayableController extends Component {
 
     protected onLoad(): void {
         this.setRedirectUrl();
-        this.enablePhysics();
 
         this.audioSystem = AudioSystem.getInstance<AudioSystem>();
         this.inputSystem = InputSystem.getInstance<InputSystem>();
@@ -38,11 +37,6 @@ export default class PlayableController extends Component {
 
     protected start(): void {
         this.windowResized();
-    }
-
-    private enablePhysics(): void {
-        PhysicsSystem.instance.enable = true;
-        PhysicsSystem.instance.gravity = new Vec3(0, -10, 0);
     }
 
     private setRedirectUrl(): void {

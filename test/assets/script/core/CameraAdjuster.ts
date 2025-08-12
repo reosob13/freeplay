@@ -37,14 +37,14 @@ export default class CameraAdjuster extends Component {
     }
 
     protected onEnable(): void {
-        GlobalEventTarget.on(PlayableEvent[PlayableEvent.WINDOW_RESIZED], this.onWindowResized, this);
+        GlobalEventTarget.on(PlayableEvent[PlayableEvent.WINDOW_RESIZED], this.applyAdjustment, this);
     }
 
     protected onDisable(): void {
-        GlobalEventTarget.off(PlayableEvent[PlayableEvent.WINDOW_RESIZED], this.onWindowResized, this);
+        GlobalEventTarget.off(PlayableEvent[PlayableEvent.WINDOW_RESIZED], this.applyAdjustment, this);
     }
 
-    private onWindowResized(screenInfo: ScreenInfo): void {
+    public applyAdjustment(screenInfo: ScreenInfo): void {
         this.camera.fov = screenInfo.isLandscape ? this.cameraFov.landscapeFov : this.cameraFov.portraitFov;
         this.node.position = screenInfo.isLandscape ? this.cameraPos.cameraLandscapePos : this.cameraPos.cameraPortraitPos;
         this.node.eulerAngles = screenInfo.isLandscape ? this.cameraAngle.cameraLandscapeAngle : this.cameraAngle.cameraPortraitAngle;
