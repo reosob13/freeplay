@@ -1,9 +1,31 @@
-import {_decorator, Component} from 'cc';
+import {_decorator, Collider, ERigidBodyType, ICollisionEvent, RigidBody} from 'cc';
 import {PooledComponent} from '../core/Pool/PooledComponent';
+import CarController from './CarController';
 
 const {ccclass, property} = _decorator;
 
 @ccclass('Log')
 export default class Log extends PooledComponent {
+    @property(RigidBody) private rb!: RigidBody;
+    @property(Collider) private collider!: Collider;
 
+    protected onEnable(): void {
+        this.collider.on('onCollisionEnter', this.onCollisionEnter, this);
+    }
+
+    protected onDisable(): void {
+        this.collider.off('onCollisionEnter', this.onCollisionEnter, this);
+    }
+
+    protected start(): void {
+        this.rb.type = ERigidBodyType.STATIC;
+    }
+
+    private onCollisionEnter(event: ICollisionEvent): void {
+        const other = event.otherCollider;
+
+        if (other.node.getComponent(CarController)) {
+            this.rb.type = ERigidBodyType.DYNAMIC;
+        }
+    }
 }
