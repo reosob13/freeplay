@@ -1,4 +1,4 @@
-import {_decorator, Component, Collider, ICollisionEvent, RigidBody} from 'cc';
+import {_decorator, Component, Collider, ICollisionEvent, RigidBody, CapsuleCollider} from 'cc';
 import CarMover from './CarMover';
 import Log from './Log';
 
@@ -10,7 +10,7 @@ export default class CarController extends Component {
     @property(RigidBody) private rb!: RigidBody;
     @property(Collider) private collider!: Collider;
 
-    private logsInContact: Log[] = []; // Массив для хранения бревен в контакте
+    private logsInContact: Log[] = [];
 
     protected onEnable(): void {
         this.collider.on('onCollisionEnter', this.onCollisionEnter, this);

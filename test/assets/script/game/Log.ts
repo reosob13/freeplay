@@ -1,6 +1,8 @@
 import {_decorator, Collider, ERigidBodyType, ICollisionEvent, RigidBody} from 'cc';
 import {PooledComponent} from '../core/Pool/PooledComponent';
 import CarController from './CarController';
+import PlayableEvent from '../enum/PlayableEvent';
+import GameEvent from '../enum/GameEvent';
 
 const {ccclass, property} = _decorator;
 
@@ -21,11 +23,15 @@ export default class Log extends PooledComponent {
         this.rb.type = ERigidBodyType.STATIC;
     }
 
+    public fall(): void {
+        this.rb.type = ERigidBodyType.DYNAMIC;
+    }
+
     private onCollisionEnter(event: ICollisionEvent): void {
         const other = event.otherCollider;
 
         if (other.node.getComponent(CarController)) {
-            this.rb.type = ERigidBodyType.DYNAMIC;
+            this.node.emit(GameEvent[GameEvent.LOG_FALLING], this);
         }
     }
 }
