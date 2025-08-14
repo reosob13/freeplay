@@ -1,6 +1,9 @@
-import {_decorator, Component, Collider, ICollisionEvent, RigidBody, CapsuleCollider} from 'cc';
+import {_decorator, Component, Collider, ICollisionEvent, RigidBody, Animation} from 'cc';
 import CarMover from './CarMover';
-import Log from './Log';
+import CarElement from './CarElement';
+import GameEvent from '../enum/GameEvent';
+import GlobalEventTarget from '../core/GlobalEventTarget';
+import FailZone from './FailZone';
 
 const {ccclass, property} = _decorator;
 
@@ -9,50 +12,68 @@ export default class CarController extends Component {
     @property(CarMover) private mover!: CarMover;
     @property(RigidBody) private rb!: RigidBody;
     @property(Collider) private collider!: Collider;
+    @property(Animation) private animation!: Animation;
+    @property([CarElement]) private elements: CarElement[] = [];
 
-    private logsInContact: Log[] = [];
+    private isFallen: boolean = false;
 
     protected onEnable(): void {
-        this.collider.on('onCollisionEnter', this.onCollisionEnter, this);
-        this.collider.on('onCollisionExit', this.onCollisionExit, this);
+        GlobalEventTarget.on(GameEvent[GameEvent.LEVER_CHANGED], this.onLeverChanged, this);
+        this.collider.on('onTriggerEnter', this.onTriggerEnter, this);
     }
 
     protected onDisable(): void {
-        this.collider.off('onCollisionEnter', this.onCollisionEnter, this);
-        this.collider.off('onCollisionExit', this.onCollisionExit, this);
+        GlobalEventTarget.off(GameEvent[GameEvent.LEVER_CHANGED], this.onLeverChanged, this);
+        this.collider.off('onTriggerEnter', this.onTriggerEnter, this);
     }
 
-    private onCollisionEnter(event: ICollisionEvent): void {
-        const logComponent = event.otherCollider.node.getComponent(Log);
-
-        if (!logComponent) {
+    private fall(): void {
+        if (this.isFallen) {
             return;
         }
 
-        const alreadyExists = this.logsInContact.findIndex(log => log === logComponent) !== -1;
+        this.isFallen = true;
 
-        if (!alreadyExists) {
-            this.logsInContact.push(logComponent);
-            console.log(`Бревно добавлено. Всего бревен: ${this.logsInContact.length}`);
+        this.mover.stop();
+        this.mover.enabled = false;
+
+        this.animation.stop();
+
+        this.rb.sleep();
+
+        GlobalEventTarget.emit(GameEvent[GameEvent.FAIL]);
+
+        for (const element of this.elements) {
+            element.fall();
         }
     }
 
-    private onCollisionExit(event: ICollisionEvent): void {
-        const logComponent = event.otherCollider.node.getComponent(Log);
-
-        if (!logComponent) {
+    private onLeverChanged(leverValue: number): void {
+        if (this.isFallen) {
             return;
         }
 
-        const index = this.logsInContact.findIndex(log => log === logComponent);
+        this.mover.getLeverValue(leverValue);
 
-        if (index !== -1) {
-            this.logsInContact.splice(index, 1);
-            console.log(`Бревно удалено. Осталось бревен: ${this.logsInContact.length}`);
+        const clip = this.animation.defaultClip;
+        if (!clip) {
+            return;
+        }
 
-            if (this.logsInContact.length === 0) {
-                console.log("Test");
+        const state = this.animation.getState(clip.name);
+
+        if (state) {
+            state.speed = Math.max(0, leverValue);
+            if (state.speed > 0 && !state.isPlaying) {
+                this.animation.play(clip.name);
             }
+        }
+    }
+
+    private onTriggerEnter(event: ICollisionEvent): void {
+        const failZone = event.otherCollider.getComponent(FailZone);
+        if (failZone) {
+            this.fall();
         }
     }
 }
