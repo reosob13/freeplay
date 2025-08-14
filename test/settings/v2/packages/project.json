@@ -32,14 +32,19 @@
       {
         "index": 4,
         "name": "CAR_ELEMENT"
+      },
+      {
+        "index": 5,
+        "name": "COIN"
       }
     ],
     "collisionMatrix": {
       "0": 2,
-      "1": 13,
-      "2": 2,
+      "1": 45,
+      "2": 18,
       "3": 2,
-      "4": 16
+      "4": 20,
+      "5": 2
     },
     "allowSleep": false
   },

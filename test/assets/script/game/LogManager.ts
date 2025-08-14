@@ -3,6 +3,7 @@ import {PoolManager} from '../core/Pool/PoolManager';
 import Log from './Log';
 import PooledType from '../core/Pool/PooledType';
 import GameEvent from '../enum/GameEvent';
+import GlobalEventTarget from '../core/GlobalEventTarget';
 
 const {ccclass, property} = _decorator;
 
@@ -17,6 +18,14 @@ export default class LogManager extends Component {
 
     protected onLoad(): void {
         this.poolManager = PoolManager.getInstance<PoolManager>();
+    }
+
+    protected onEnable(): void {
+        GlobalEventTarget.on(GameEvent[GameEvent.TOUCHED_FALL_ZONE], this.onTouchedFallZone, this);
+    }
+
+    protected onDisable(): void {
+        GlobalEventTarget.off(GameEvent[GameEvent.TOUCHED_FALL_ZONE], this.onTouchedFallZone, this);
     }
 
     protected start(): void {
@@ -47,5 +56,13 @@ export default class LogManager extends Component {
         }
 
         this.logs.splice(0, triggeredIndex + 1);
+    }
+
+    private onTouchedFallZone(): void {
+        for (let i = 0; i < this.logs.length; i++) {
+            this.logs[i].fall();
+        }
+
+        this.logs = [];
     }
 }

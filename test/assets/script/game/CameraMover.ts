@@ -29,7 +29,7 @@ export default class CameraMover extends Component {
         this.lastCarPosX = this.carController.node.worldPosition.x;
     }
 
-    protected lateUpdate(dt: number): void {
+    protected update(dt: number): void {
         const currentCarPosX = this.carController.node.worldPosition.x;
 
         if (currentCarPosX === this.lastCarPosX) {

@@ -1,4 +1,4 @@
-import {Vec2, Vec3, Node, Component, Animation, SkeletalAnimation, Mat4, EventTouch} from 'cc';
+import {Vec2, Vec3, Node, Component, Animation, SkeletalAnimation, Mat4, EventTouch, Camera} from 'cc';
 
 export default class GeneralUtils {
     public static pickRandom<T>(items: T[]): T {

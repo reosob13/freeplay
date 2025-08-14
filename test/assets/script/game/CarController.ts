@@ -3,7 +3,9 @@ import CarMover from './CarMover';
 import CarElement from './CarElement';
 import GameEvent from '../enum/GameEvent';
 import GlobalEventTarget from '../core/GlobalEventTarget';
-import FailZone from './FailZone';
+import ActionZone from './ActionZone';
+import ZoneType from '../enum/ZoneType';
+import PlayableEvent from '../enum/PlayableEvent';
 
 const {ccclass, property} = _decorator;
 
@@ -56,24 +58,28 @@ export default class CarController extends Component {
         this.mover.getLeverValue(leverValue);
 
         const clip = this.animation.defaultClip;
-        if (!clip) {
+        const state = this.animation.getState(clip.name);
+
+        state.speed = leverValue;
+        this.animation.play(clip.name);
+    }
+
+
+    private onTriggerEnter(event: ICollisionEvent): void {
+        const failZone = event.otherCollider.getComponent(ActionZone);
+
+        if (!failZone) {
             return;
         }
 
-        const state = this.animation.getState(clip.name);
+        switch (failZone.typeValue) {
+            case ZoneType.Fail:
+                this.fall();
+                break;
 
-        if (state) {
-            state.speed = Math.max(0, leverValue);
-            if (state.speed > 0 && !state.isPlaying) {
-                this.animation.play(clip.name);
-            }
-        }
-    }
-
-    private onTriggerEnter(event: ICollisionEvent): void {
-        const failZone = event.otherCollider.getComponent(FailZone);
-        if (failZone) {
-            this.fall();
+            case ZoneType.Fall:
+                GlobalEventTarget.emit(GameEvent[GameEvent.TOUCHED_FALL_ZONE]);
+                break;
         }
     }
 }
