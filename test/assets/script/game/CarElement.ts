@@ -1,5 +1,4 @@
-import {_decorator, CCFloat, Component, ERigidBodyType, RigidBody, Vec3} from 'cc';
-import GeneralUtils from '../core/GeneralUtils';
+import {_decorator, Component, ERigidBodyType, RigidBody} from 'cc';
 
 const {ccclass, property} = _decorator;
 

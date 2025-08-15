@@ -1,8 +1,8 @@
-import {PoolManager} from './core/Pool/PoolManager';
+import {PoolManager} from '../core/Pool/PoolManager';
 import {_decorator, CCInteger, Component, Vec3, Node} from 'cc';
-import Coin from './game/Coin';
-import PooledType from './core/Pool/PooledType';
-import GeneralUtils from './core/GeneralUtils';
+import Coin from './Coin';
+import PooledType from '../core/Pool/PooledType';
+import GeneralUtils from '../core/GeneralUtils';
 
 const {ccclass, property} = _decorator;
 

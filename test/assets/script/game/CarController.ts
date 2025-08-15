@@ -1,11 +1,10 @@
-import {_decorator, Component, Collider, ICollisionEvent, RigidBody, Animation} from 'cc';
+import {_decorator, Component, ICollisionEvent, RigidBody, Animation, BoxCollider} from 'cc';
 import CarMover from './CarMover';
 import CarElement from './CarElement';
 import GameEvent from '../enum/GameEvent';
 import GlobalEventTarget from '../core/GlobalEventTarget';
 import ActionZone from './ActionZone';
 import ZoneType from '../enum/ZoneType';
-import PlayableEvent from '../enum/PlayableEvent';
 
 const {ccclass, property} = _decorator;
 
@@ -13,7 +12,7 @@ const {ccclass, property} = _decorator;
 export default class CarController extends Component {
     @property(CarMover) private mover!: CarMover;
     @property(RigidBody) private rb!: RigidBody;
-    @property(Collider) private collider!: Collider;
+    @property(BoxCollider) private collider!: BoxCollider;
     @property(Animation) private animation!: Animation;
     @property([CarElement]) private elements: CarElement[] = [];
 

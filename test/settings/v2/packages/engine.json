@@ -37,7 +37,7 @@
       },
       "physics": {
         "_value": true,
-        "_option": "physics-ammo"
+        "_option": "physics-cannon"
       },
       "physics-ammo": {
         "_value": false
@@ -132,7 +132,7 @@
       "gfx-webgl",
       "gfx-webgl2",
       "light-probe",
-      "physics-ammo",
+      "physics-cannon",
       "primitive",
       "skeletal-animation",
       "tween",

@@ -9,8 +9,6 @@ const {ccclass, property} = _decorator;
 
 @ccclass()
 export default class InputSystem extends Singleton<InputSystem> {
-    @property(Sprite) private back!: Sprite;
-
     private currentTouchID: number = 0;
 
     private isFirstTap: boolean = false;
@@ -38,9 +36,6 @@ export default class InputSystem extends Singleton<InputSystem> {
     private onInput(type: InputType, eventTouch: EventTouch, touchSource: InputSource): void {
         if (type === InputType.Down && !this.isFirstTap) {
             this.isFirstTap = true;
-            this.back.node.active = false;
-
-            GlobalEventTarget.emit(PlayableEvent[PlayableEvent.FIRST_TAP]);
         }
 
         if (this.isLockedMultiTouch && this.currentTouchID !== 0 && this.currentTouchID !== eventTouch.getID()) {

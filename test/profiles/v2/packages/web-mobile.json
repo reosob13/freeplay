@@ -1,0 +1,49 @@
+{
+  "__version__": "1.0.1",
+  "builder": {
+    "common": {
+      "buildPath": "project://build",
+      "outputName": "web-mobile",
+      "mainBundleCompressionType": "merge_dep",
+      "platform": "web-mobile",
+      "scenes": [
+        {
+          "url": "db://assets/scene/main.scene",
+          "uuid": "e8637842-1318-4155-837b-57b2cbca995a",
+          "inBundle": false
+        }
+      ],
+      "useSplashScreen": false,
+      "mainBundleIsRemote": false,
+      "useBuiltinServer": false,
+      "md5Cache": false,
+      "debug": false,
+      "sourceMaps": false,
+      "experimentalEraseModules": false,
+      "skipCompressTexture": false
+    },
+    "taskOptionsMap": {
+      "1755216117754": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1755216607863": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1755216776962": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1755286477668": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      }
+    },
+    "__version__": "1.3.5"
+  }
+}

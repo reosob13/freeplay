@@ -2,5 +2,70 @@
   "__version__": "1.3.5",
   "log": {
     "level": 4
+  },
+  "common": {
+    "buildPath": "project://build",
+    "outputName": "web-mobile",
+    "mainBundleCompressionType": "merge_dep",
+    "platform": "web-mobile",
+    "scenes": [
+      {
+        "url": "db://assets/scene/main.scene",
+        "uuid": "e8637842-1318-4155-837b-57b2cbca995a",
+        "inBundle": false
+      }
+    ],
+    "useSplashScreen": false,
+    "mainBundleIsRemote": false,
+    "useBuiltinServer": false,
+    "md5Cache": false,
+    "debug": false,
+    "sourceMaps": false,
+    "experimentalEraseModules": false,
+    "skipCompressTexture": false
+  },
+  "BuildTaskManager": {
+    "taskMap": {
+      "1755286477668": {
+        "type": "build",
+        "id": "1755286477668",
+        "progress": 1,
+        "state": "success",
+        "stage": "run",
+        "message": "15.08.2025 23:36:30 run package C:\\Users\\Alex\\Documents\\Project\\freeplay\\test\\build\\web-mobile success!",
+        "options": {
+          "name": "test",
+          "platform": "web-mobile",
+          "buildPath": "project://build",
+          "debug": false,
+          "md5Cache": false,
+          "skipCompressTexture": false,
+          "sourceMaps": false,
+          "polyfills": {
+            "asyncFunctions": true
+          },
+          "experimentalEraseModules": false,
+          "useBuiltinServer": false,
+          "mainBundleIsRemote": false,
+          "mainBundleCompressionType": "merge_dep",
+          "useSplashScreen": true,
+          "packAutoAtlas": true,
+          "startScene": "e8637842-1318-4155-837b-57b2cbca995a",
+          "outputName": "web-mobile",
+          "scenes": [
+            {
+              "url": "db://assets/scene/main.scene",
+              "uuid": "e8637842-1318-4155-837b-57b2cbca995a",
+              "inBundle": false
+            }
+          ],
+          "web-mobile": [],
+          "packages": {},
+          "__version__": "1.3.5"
+        },
+        "time": "15.08.2025 23:35",
+        "dirty": false
+      }
+    }
   }
 }

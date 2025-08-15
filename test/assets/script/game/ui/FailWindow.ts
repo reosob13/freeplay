@@ -2,6 +2,7 @@ import {_decorator, Animation, CCFloat, Component} from 'cc';
 import InputComponent from '../../core/Input/InputComponent';
 import GlobalEventTarget from '../../core/GlobalEventTarget';
 import GameEvent from '../../enum/GameEvent';
+import PlayableEvent from '../../enum/PlayableEvent';
 
 const {ccclass, property} = _decorator;
 
@@ -27,6 +28,8 @@ export default class FailWindow extends Component {
     private show(): void {
         this.redirectInput.enabled = true;
         this.animation.play();
+
+        GlobalEventTarget.emit(PlayableEvent[PlayableEvent.RESULT]);
 
         this.schedule(() => {
             this.buttonAnimation.play();

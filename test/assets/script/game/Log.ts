@@ -1,4 +1,4 @@
-import {_decorator, CCFloat, Collider, ERigidBodyType, ICollisionEvent, RigidBody} from 'cc';
+import {_decorator, BoxCollider, CCFloat, ERigidBodyType, ICollisionEvent, RigidBody} from 'cc';
 import {PooledComponent} from '../core/Pool/PooledComponent';
 import CarController from './CarController';
 import GameEvent from '../enum/GameEvent';
@@ -8,7 +8,7 @@ const {ccclass, property} = _decorator;
 @ccclass('Log')
 export default class Log extends PooledComponent {
     @property(RigidBody) private rb!: RigidBody;
-    @property(Collider) private collider!: Collider;
+    @property(BoxCollider) private collider!: BoxCollider;
 
     @property(CCFloat) private delayToDisable: number = 5;
 

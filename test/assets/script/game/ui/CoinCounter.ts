@@ -4,8 +4,8 @@ import GameEvent from '../../enum/GameEvent';
 
 const {ccclass, property} = _decorator;
 
-@ccclass('MoneyCounter')
-export default class MoneyCounter extends Component {
+@ccclass('CoinCounter')
+export default class CoinCounter extends Component {
     @property(Label) private label!: Label;
 
     private currentCount: number = 0;

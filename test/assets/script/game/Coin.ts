@@ -1,10 +1,8 @@
-import {_decorator, Collider, ICollisionEvent, tween} from 'cc';
+import {_decorator, Collider, ICollisionEvent} from 'cc';
 import {PooledComponent} from '../core/Pool/PooledComponent';
 import CarController from './CarController';
-import MoneyCounter from './ui/MoneyCounter';
-import GeneralUtils from '../core/GeneralUtils';
-import GlobalEventTarget from '../core/GlobalEventTarget';
 import GameEvent from '../enum/GameEvent';
+import GlobalEventTarget from '../core/GlobalEventTarget';
 
 const {ccclass, property} = _decorator;
 
@@ -31,7 +29,7 @@ export default class Coin extends PooledComponent {
             return;
         }
 
-        GlobalEventTarget.emit(GameEvent[GameEvent.COIN_ADDED]);
+        GlobalEventTarget.emit(GameEvent[GameEvent.COIN_ADDED], this);
 
         this.disable();
     }
